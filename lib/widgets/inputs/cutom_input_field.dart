@@ -5,6 +5,7 @@ class CustomInputField extends StatelessWidget {
   final String? labelText;
   final String? helperText;
   final Icon? icon;
+  final TextInputType? type;
   final void Function(String)? onChange;
   const CustomInputField({
     super.key,
@@ -13,6 +14,7 @@ class CustomInputField extends StatelessWidget {
     this.helperText,
     this.icon,
     this.onChange,
+    this.type,
   });
 
   @override
@@ -20,6 +22,7 @@ class CustomInputField extends StatelessWidget {
     return TextFormField(
       autofocus: true,
       textCapitalization: TextCapitalization.words,
+      keyboardType: type,
       onChanged: onChange,
       //validacion:
       validator: (value) {
@@ -29,9 +32,9 @@ class CustomInputField extends StatelessWidget {
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
-        suffixIcon: const Icon(Icons.access_alarm),
-        prefixIcon: const Icon(Icons.add_road),
-        icon: icon ?? const Icon(Icons.abc_rounded),
+        // suffixIcon: const Icon(Icons.access_alarm),
+        // prefixIcon: const Icon(Icons.add_road),
+        // icon: icon ?? const Icon(Icons.abc_rounded),
         labelText: labelText,
         helperText: helperText,
       ),
